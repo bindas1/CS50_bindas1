@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/components/alerts/ -->
+    <h1>Registered</h1>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Favourite sport</th>
+                <th>Continent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <th>{{ student["Name"] }}</th>
+                    <th>{{ student["Sirname"] }}</th>
+                    <th>{{ student["Email"] }}</th>
+                    <th>{{ student["PreferredSport"] }}</th>
+                    <th>{{ student["Continent"] }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

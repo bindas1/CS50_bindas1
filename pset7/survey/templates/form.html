@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+
+        <!-- TODO -->
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="NameControl">Name</label>
+                <input type="text" class="form-control" name="Name" id="NameControl" placeholder="Jan" value ="" required>
+                <div class="invalid-feedback">
+                    Please provide a name
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="SirnameControl">Sirname</label>
+                <input type="text" class="form-control" name="Sirname" id="SirnameControl" placeholder="Nowak" value ="" required>
+                <div class="invalid-feedback">
+                    Please provide a sirname
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" name="Email" id="Email" aria-describedby="emailHelp" placeholder="Enter email" value ="" required>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="invalid-feedback">
+                Please enter a valid email
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="PreferredSport">Preferred sport</label>
+            <select class="form-control" required id="PreferredSport" name="PreferredSport">
+            <option disabled selected value="">Select your favourite sport</option>
+              <option>Surfing</option>
+              <option>Snowboarding</option>
+              <option>Windsurfing</option>
+              <option>Kitesurfing</option>
+              <option>Skateboarding</option>
+            </select>
+            <div class="invalid-feedback">
+                Please choose your favourite sport
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inlineRadio1">Your continent</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio1" value="Africa">
+            <label class="form-check-label" for="inlineRadio1">Africa</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio2" value="Asia">
+            <label class="form-check-label" for="inlineRadio2">Asia</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio3" value="Australia">
+            <label class="form-check-label" for="inlineRadio3">Australia</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio4" value="Europe">
+            <label class="form-check-label" for="inlineRadio4">Europe</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio5" value="North America">
+            <label class="form-check-label" for="inlineRadio5">North America</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Continent" required id="inlineRadio6" value="South America">
+            <label class="form-check-label" for="inlineRadio6">South America</label>
+        </div>
+
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+<script>
+
+        /* TODO */
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+
+    </script>
+
+{% endblock %}
